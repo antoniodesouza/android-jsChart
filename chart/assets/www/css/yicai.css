@@ -1,0 +1,419 @@
+/* yicai */
+.yicai-header-btn{
+	width: 40px;
+	height: 15px;
+}
+/*轮播*/
+#wrappercarousel {
+	width:100%;
+	height:150px;
+
+	float:left;
+	position:relative;	/* On older OS versions "position" and "z-index" must be defined, */
+	z-index:1;			/* it seems that recent webkit is less picky and works anyway. */
+	overflow:hidden;
+}
+
+#scrollercarousel {
+	height:150px;
+	float:left;
+	padding:0;
+}
+
+#scrollercarousel ul {
+	list-style:none;
+	display:block;
+	float:left;
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+	text-align:left;
+}
+
+#scrollercarousel li {
+	display:block; float:left;
+	height:150px;
+	text-align:center;
+	font-family:georgia;
+	font-size:18px;
+	line-height:140%;
+}
+
+#indicator, #indicator > li {
+	display:block; float:left;
+	list-style:none;
+	padding:0; margin:0;
+}
+
+#indicator {
+	z-index:2;
+	position:relative;
+	top:-40px;
+	margin-left:176px;
+}
+
+#indicator > li {
+	text-indent:-9999em;
+	width:8px; height:8px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px;
+	background:#ddd;
+	overflow:hidden;
+	margin-right:4px;
+}
+
+#indicator > li.active {
+	background:#888;
+}
+
+#indicator > li:last-child {
+	margin:0;
+}
+/*列表*/
+#mainwrapperlist,#channelwrapperlist,#querywrapperlist,#authorwrapperlist {
+	position:absolute; z-index:1;
+	top:45px; bottom:0px; left:-9999px;
+	width:100%;
+	overflow:auto;
+}
+
+#mainscrollerlist,#channelscrollerlist,#queryscrollerlist,#authorscrollerlist {
+	position:absolute; z-index:1;
+/*	-webkit-touch-callout:none;*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	width:100%;
+	padding:0;
+}
+
+#mainscrollerlist ul,#channelscrollerlist ul,#queryscrollerlist ul,#authorscrollerlist ul {
+	padding:0;
+	list-style:none;
+	margin:0;
+	width:100%;
+}
+
+#mainscrollerlist li,#channelscrollerlist li,#queryscrollerlist li,#authorscrollerlist li{
+}
+
+/**
+ *
+ * Pull down styles
+ *
+ */
+#pullDown, #pullUp,
+#mainpullDown,
+#querypullUp,
+#authorArticlepullDown,#authorArticlepullUp,
+#channelpullDown,#channelpullUp {
+	background:#fff;
+	height:40px;
+	line-height:40px;
+	padding:5px 10px;
+	border-bottom:1px solid #ccc;
+	font-weight:bold;
+	font-size:14px;
+	color:#888;
+}
+#pullDown .pullDownIcon, #pullUp .pullUpIco,
+#mainpullDown .pullDownIcon,
+#querypullUp .pullUpIcon,
+#authorArticlepullDown .pullDownIcon,#authorArticlepullUp .pullUpIcon,
+#channelpullDown .pullDownIcon,#channelpullUp .pullUpIcon {
+	display:block; float:left;
+	width:40px; height:40px;
+	background:url(../image/pull-icon@2x.png) 0 0 no-repeat;
+	-webkit-background-size:40px 80px; background-size:40px 80px;
+	-webkit-transition-property:-webkit-transform;
+	-webkit-transition-duration:250ms;	
+}
+#pullDown .pullDownIcon,
+#mainpullDown .pullDownIcon,
+#authorArticlepullDown .pullDownIcon,
+#channelpullDown .pullDownIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+#pullUp .pullUpIcon,
+#querypullUp .pullUpIcon,
+#authorArticlepullUp .pullUpIcon,
+#channelpullUp .pullUpIcon  {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullDown.flip .pullDownIcon,
+#mainpullDown.flip .pullDownIcon,
+#authorArticlepullDown.flip .pullDownIcon,
+#channelpullDown.flip .pullDownIcon {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullUp.flip .pullUpIcon,
+#querypullUp.flip .pullUpIcon,
+#authorArticlepullUp.flip .pullUpIcon,
+#channelpullUp.flip .pullUpIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+
+#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon,
+#mainpullDown.loading .pullDownIcon,
+#querypullUp.loading .pullUpIcon,
+#authorArticlepullDown.loading .pullDownIcon,#authorArticlepullUp.loading .pullUpIcon,
+#channelpullDown.loading .pullDownIcon,#channelpullUp.loading .pullUpIcon {
+	background-position:0 100%;
+	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transition-duration:0ms;
+
+	-webkit-animation-name:loading;
+	-webkit-animation-duration:2s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes loading {
+	from { -webkit-transform:rotate(0deg) translateZ(0); }
+	to { -webkit-transform:rotate(360deg) translateZ(0); }
+}
+
+/* Globals */
+/* Font
+-----------------------------------------------------------------------------------------------------------*/
+body,
+input,
+select,
+textarea,
+button,
+.ui-btn {
+	font-size: 1em;
+	line-height: 1.3;
+	font-family: "微软雅黑" /*{global-font-family}*/;
+}
+/* Buttons
+-----------------------------------------------------------------------------------------------------------*/
+.ui-btn,
+label.ui-btn {
+	font-weight: bold;
+	border:none;
+	box-shadow:none;
+}
+.ui-btn:link {
+	text-decoration: none !important;
+}
+.ui-btn-active {
+	cursor: pointer;
+}
+/* Corner rounding
+-----------------------------------------------------------------------------------------------------------*/
+/* Class ui-btn-corner-all deprecated in 1.4 */
+.ui-corner-all {
+	-webkit-border-radius: 				0 /*{global-radii-blocks}*/;
+	border-radius: 						0 /*{global-radii-blocks}*/;
+}
+/* Buttons */
+.ui-btn-corner-all,
+.ui-btn.ui-corner-all,
+/* Slider track */
+.ui-slider-track.ui-corner-all,
+/* Flipswitch */
+.ui-flipswitch.ui-corner-all,
+/* Count bubble */
+.ui-li-count {
+	-webkit-border-radius: 				0 /*{global-radii-buttons}*/;
+	border-radius: 						0 /*{global-radii-buttons}*/;
+}
+/* Icon-only buttons */
+.ui-btn-icon-notext.ui-btn-corner-all,
+.ui-btn-icon-notext.ui-corner-all {
+	-webkit-border-radius: 1em;
+	border-radius: 1em;
+}
+/* Radius clip workaround for cleaning up corner trapping */
+.ui-btn-corner-all,
+.ui-corner-all {
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+}
+
+
+/* Swatches */
+/* A
+-----------------------------------------------------------------------------------------------------------*/
+/* Bar: Toolbars, dividers, slider track */
+.ui-bar-a,
+.ui-overlay-a .ui-bar-inherit,
+.ui-page-theme-a .ui-bar-inherit,
+html .ui-bar-a .ui-bar-inherit,
+html .ui-body-a .ui-bar-inherit,
+html body .ui-group-theme-a .ui-bar-inherit {
+	background:-webkit-linear-gradient(#D71D1E,#BF0F11,#A60201)/*{a-bar-background-color}*/;
+	border-color:	 		#ddd /*{a-bar-border}*/;
+	color: 					#FFF /*{a-bar-color}*/;
+	text-shadow: none;
+	font-weight: bold;
+}
+.ui-bar-a {
+	border-width: 1px;
+	border-style: solid;
+}
+/* Page and overlay */
+.ui-overlay-a,
+.ui-page-theme-a,
+.ui-page-theme-a .ui-panel-wrapper {
+	background: 			#F3EEE8 /*{a-page-background-color}*/;
+	border-color:	 		#bbb /*{a-page-border}*/;
+	color: 					#111 /*{a-page-color}*/;
+	text-shadow: none;
+}
+/* Body: Read-only lists, text inputs, collapsible content */
+.ui-body-a,
+.ui-overlay-a .ui-body-inherit,
+.ui-page-theme-a .ui-body-inherit,
+html .ui-bar-a .ui-body-inherit,
+html .ui-body-a .ui-body-inherit,
+html body .ui-group-theme-a .ui-body-inherit,
+html .ui-panel-page-container-a {
+	background: 			#fff /*{a-body-background-color}*/;
+	border-color:	 		#ddd /*{a-body-border}*/;
+	color: 					#111 /*{a-body-color}*/;
+	text-shadow: none;
+}
+.ui-body-a {
+	border-width: 1px;
+	border-style: solid;
+}
+/* Links */
+.ui-overlay-a a,
+.ui-page-theme-a a,
+html .ui-bar-a a,
+html .ui-body-a a,
+html body .ui-group-theme-a a {
+	color: #85827D /*{a-link-color}*/;
+	text-decoration:none;
+	font-weight: bold;
+}
+.ui-overlay-a a:visited,
+.ui-page-theme-a a:visited,
+html .ui-bar-a a:visited,
+html .ui-body-a a:visited,
+html body .ui-group-theme-a a:visited {
+    color: #85827D /*{a-link-visited}*/;
+}
+.ui-overlay-a a:hover,
+.ui-page-theme-a a:hover,
+html .ui-bar-a a:hover,
+html .ui-body-a a:hover,
+html body .ui-group-theme-a a:hover {
+	color: #85827D /*{a-link-hover}*/;
+}
+.ui-overlay-a a:active,
+.ui-page-theme-a a:active,
+html .ui-bar-a a:active,
+html .ui-body-a a:active,
+html body .ui-group-theme-a a:active {
+	color: #85827D /*{a-link-active}*/;
+}
+/* Button up */
+.ui-overlay-a .ui-btn,
+.ui-page-theme-a .ui-btn,
+html .ui-bar-a .ui-btn,
+html .ui-body-a .ui-btn,
+html body .ui-group-theme-a .ui-btn,
+html head + body .ui-btn.ui-btn-a,
+/* Button visited */
+.ui-overlay-a .ui-btn:visited,
+.ui-page-theme-a .ui-btn:visited,
+html .ui-bar-a .ui-btn:visited,
+html .ui-body-a .ui-btn:visited,
+html body .ui-group-theme-a .ui-btn:visited,
+html head + body .ui-btn.ui-btn-a:visited {
+	background: 			#f6f6f6 /*{a-bup-background-color}*/;
+	border-color:	 		#ddd /*{a-bup-border}*/;
+	color: 					#111 /*{a-bup-color}*/;
+	text-shadow: none;
+}
+/* Button hover */
+.ui-overlay-a .ui-btn:hover,
+.ui-page-theme-a .ui-btn:hover,
+html .ui-bar-a .ui-btn:hover,
+html .ui-body-a .ui-btn:hover,
+html body .ui-group-theme-a .ui-btn:hover,
+html head + body .ui-btn.ui-btn-a:hover {
+	background: 			#ededed /*{a-bhover-background-color}*/;
+	border-color:	 		#ddd /*{a-bhover-border}*/;
+	color: 					#111 /*{a-bhover-color}*/;
+	text-shadow: none;
+}
+/* Button down */
+.ui-overlay-a .ui-btn:active,
+.ui-page-theme-a .ui-btn:active,
+html .ui-bar-a .ui-btn:active,
+html .ui-body-a .ui-btn:active,
+html body .ui-group-theme-a .ui-btn:active,
+html head + body .ui-btn.ui-btn-a:active {
+	background: 			#e8e8e8 /*{a-bdown-background-color}*/;
+	border-color:	 		#ddd /*{a-bdown-border}*/;
+	color: 					#111 /*{a-bdown-color}*/;
+	text-shadow: none;
+}
+/* Active button */
+.ui-overlay-a .ui-btn.ui-btn-active,
+.ui-page-theme-a .ui-btn.ui-btn-active,
+html .ui-bar-a .ui-btn.ui-btn-active,
+html .ui-body-a .ui-btn.ui-btn-active,
+html body .ui-group-theme-a .ui-btn.ui-btn-active,
+html head + body .ui-btn.ui-btn-a.ui-btn-active,
+/* Active checkbox icon */
+.ui-overlay-a .ui-icon-checkbox-on:after,
+.ui-page-theme-a .ui-icon-checkbox-on:after,
+html .ui-bar-a .ui-icon-checkbox-on:after,
+html .ui-body-a .ui-icon-checkbox-on:after,
+html body .ui-group-theme-a .ui-icon-checkbox-on:after,
+.ui-btn.ui-icon-checkbox-on.ui-btn-a:after,
+/* Active flipswitch background */
+.ui-overlay-a .ui-flipswitch-active,
+.ui-page-theme-a .ui-flipswitch-active,
+html .ui-bar-a .ui-flipswitch-active,
+html .ui-body-a .ui-flipswitch-active,
+html body .ui-group-theme-a .ui-flipswitch-active,
+html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active,
+/* Active slider track */
+.ui-overlay-a .ui-slider-track .ui-btn-active,
+.ui-page-theme-a .ui-slider-track .ui-btn-active,
+html .ui-bar-a .ui-slider-track .ui-btn-active,
+html .ui-body-a .ui-slider-track .ui-btn-active,
+html body .ui-group-theme-a .ui-slider-track .ui-btn-active,
+html body div.ui-slider-track.ui-body-a .ui-btn-active {
+	background-color: 		#0066ff /*{a-active-background-color}*/;
+	border-color:	 		#0033ff /*{a-active-border}*/;
+	color: 					#fff /*{a-active-color}*/;
+	text-shadow: none;
+}
+/* Active radio button icon */
+.ui-overlay-a .ui-icon-radio-on:after,
+.ui-page-theme-a .ui-icon-radio-on:after,
+html .ui-bar-a .ui-icon-radio-on:after,
+html .ui-body-a .ui-icon-radio-on:after,
+html body .ui-group-theme-a .ui-icon-radio-on:after,
+.ui-btn.ui-icon-radio-on.ui-btn-a:after {
+	border-color:			#0066ff /*{a-active-background-color}*/;
+}
+/* Focus */
+.ui-overlay-a .ui-btn:focus,
+.ui-page-theme-a .ui-btn:focus,
+html .ui-bar-a .ui-btn:focus,
+html .ui-body-a .ui-btn:focus,
+html body .ui-group-theme-a .ui-btn:focus,
+html head + body .ui-btn.ui-btn-a:focus,
+/* Focus buttons and text inputs with div wrap */
+.ui-overlay-a .ui-focus,
+.ui-page-theme-a .ui-focus,
+html .ui-bar-a .ui-focus,
+html .ui-body-a .ui-focus,
+html body .ui-group-theme-a .ui-focus,
+html head + body .ui-btn-a.ui-focus,
+html head + body .ui-body-a.ui-focus {
+	-webkit-box-shadow: 0 0 12px 	#0066ff /*{a-active-background-color}*/;
+	-moz-box-shadow: 0 0 12px 		#0066ff /*{a-active-background-color}*/;
+	box-shadow: 0 0 12px 			#0066ff /*{a-active-background-color}*/;
+}
